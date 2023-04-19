@@ -4,10 +4,16 @@ const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const restaurants = require("./restaurants.json");
-
 const PORT = process.env.PORT || 3001;
-
 const app = express();
+
+/*const mysql = require('mysql')
+const connection = mysql.createConnection({
+    host: localhost
+})*/
+
+//console.log(restaurantss);
+//const restaurants = JSON.parse(fs.readFileSync("./restaurants.json"));
 
 app.use(bodyParser.json());
 
@@ -26,10 +32,12 @@ app.get("/api/restaurants", (req, res) => {
 
 app.get("/api/restaurants/:id", (req, res)=>{
     //const id = req.params.id;
+    //var id = req.params.id;
+    //var restaurant = restaurants.find(r => r.id === id);
     const restaurant = restaurants.find(r => r.id === parseInt(req.params.id));
 
     if (restaurant){
-        res.send(restaurant);
+        res.json(restaurant);
     }else{
         res.status(404).send('Restaurante no encontrado');
     }
