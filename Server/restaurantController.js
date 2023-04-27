@@ -1,6 +1,5 @@
 const Restaurant = require('./restaurant');
 const RestaurantCtrl = {}
-const { Op } = require('sequelize');
 
 RestaurantCtrl.getAllRestaurants = async (req, res, next) => {
   try {

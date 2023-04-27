@@ -1,9 +1,8 @@
 const { Sequelize } = require('sequelize');
 
-// Replace these values with your actual MySQL database credentials
+// Credenciales de MySQL
 const dbConfig = {
   host: 'localhost',
-  port: 3307,
   username: 'root',
   password: '123',
   database: 'where2eat'
@@ -11,8 +10,9 @@ const dbConfig = {
 
 const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
   host: dbConfig.host,
+  port: 3307,
   dialect: 'mysql',
-  logging: false // Set to true if you want to see SQL logs
+  logging: false
 });
 
 module.exports = sequelize;

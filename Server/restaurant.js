@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./database');
 
-const Restaurant = sequelize.define('Restaurant', {
+const Restaurant = sequelize.define('restaurant', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -39,12 +39,8 @@ const Restaurant = sequelize.define('Restaurant', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  category: {
+  price: {
     type: DataTypes.STRING,
-    allowNull: false
-  },
-  rating: {
-    type: DataTypes.DOUBLE,
     allowNull: false
   }
 });

@@ -1,25 +1,30 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./database');
-const restaurantRouter = require('./restaurant.router');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 
-app.use('/api/restaurants', restaurantRouter);
+app.use('/api/restaurants', require('./restaurant.router'));
 
-app.get('/api', (req, res) => {
-  res.json({ message: 'Hello From Server Side :)' });
-});
+(async () => {
+  try {
+    await sequelize.sync();
+    console.log('Tables created successfully');
+  } catch (error) {
+    console.error('Unable to create tables', error);
+  }
+})();
 
 sequelize.authenticate()
   .then(() => {
-    console.log('Database connected.');
     app.listen(PORT, () => {
       console.log(`Server listening on ${PORT}`);
+      console.log('Database connected.');
     });
+    
   })
   .catch(err => {
     console.error('Unable to connect to the database:', err);
