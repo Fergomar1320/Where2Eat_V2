@@ -1,0 +1,7 @@
+.card-collection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(293px, 1fr));
+    grid-gap: 16px;
+    margin: 16px;
+  }
+  

@@ -11,6 +11,10 @@ const Restaurant = sequelize.define('restaurant', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  image: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   address: {
     type: DataTypes.STRING,
     allowNull: false
