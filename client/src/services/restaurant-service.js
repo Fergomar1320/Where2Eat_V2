@@ -7,7 +7,7 @@ class RestaurantService {
   urlApi = 'http://localhost:3001/api/restaurants';
 
   getRestaurants() {
-    return axios.get(this.urlApi);
+    return axios.get(this.urlApi)
   }
 
   getRestaurantsById(id) {
