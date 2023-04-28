@@ -1,31 +1,25 @@
 import React, { useState } from 'react';
 import './Card.css';
 
-const Card = ({ id, name, image, address, city, country, latitude, longitude, phone, website, price }) => {
+const Card = ({ name, image, price, address, city, country, latitude, longitude, phone, website }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClick = () => {
-    setIsExpanded(!isExpanded);
-  };
-
   return (
-    <div className="card" onClick={handleClick}>
+    <div className="card" onClick={() => setIsExpanded(!isExpanded)}>
       <div className="card-image">
         <img src={image} alt={name} />
       </div>
-      {!isExpanded && (
-        <div className="card-content">
-          <h2 className="card-title">{name}</h2>
-          <p className="card-popup-price">{price}</p>
-        </div>
-      )}
+      <div className="card-content">
+        <h2 className="card-title">{name}</h2>
+        <p className="card-price">{price}</p>
+      </div>
       {isExpanded && (
         <div className="card-popup">
           <div className="card-popup-image">
             <img src={image} alt={name} />
           </div>
           <div className="card-popup-details">
-            <h2 className="card-title">{name}</h2>
+            <h2 className="card-popup-title">{name}</h2>
             <p className="card-popup-address">{address}</p>
             <p className="card-popup-city">{city}</p>
             <p className="card-popup-country">{country}</p>
@@ -36,7 +30,6 @@ const Card = ({ id, name, image, address, city, country, latitude, longitude, ph
           </div>
         </div>
       )}
-      <div className="card-overlay"></div>
     </div>
   );
 };
