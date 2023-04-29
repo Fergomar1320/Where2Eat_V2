@@ -18,7 +18,7 @@ const CardCollection = () => {
     <div className="card-collection">
       {restaurants.map((restaurant) => (
         <Card
-        key={restaurant.id}
+          restaurantId={restaurant.id}
           name={restaurant.name}
           image={restaurant.image}
           description={restaurant.description}

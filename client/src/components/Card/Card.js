@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import ReservationService from '../../services/reservation-service';
 import './Card.css';
 
-const Card = ({ key, name, image, price, address, city, country, latitude, longitude, phone, website }) => {
+const Card = ({ restaurantId, name, image, price, address, city, country, latitude, longitude, phone, website }) => {
   const location = useLocation();
   const username = new URLSearchParams(location.search).get('username');
   const [isExpanded, setIsExpanded] = useState(false);
@@ -27,7 +27,8 @@ const Card = ({ key, name, image, price, address, city, country, latitude, longi
   };
 
   const handleReservation = (time) => {
-    ReservationService.makeReservation(username, key, time);
+    console.log(time);
+    ReservationService.makeReservation(username, restaurantId, time);
     alert("Reservation done!")
     setShowReservation(false);
   };

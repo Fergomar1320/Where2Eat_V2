@@ -7,6 +7,6 @@ router.get('/:id', ReservationCtrl.getReservationById);
 router.post('/', ReservationCtrl.createReservation);
 router.put('/:id', ReservationCtrl.updateReservationById);
 router.delete('/:id', ReservationCtrl.deleteReservationById);
-router.get('/user/:user_id', ReservationCtrl.getAllReservationsByUser);
+router.get('/user/:username', ReservationCtrl.getAllReservationsByUsername);
 
 module.exports = router;

@@ -26,9 +26,12 @@ ReservationCtrl.getReservationById = async (req, res) => {
 
 ReservationCtrl.createReservation = async (req, res) => {
     try {
+      console.log("hi")
       const { username, restaurant_id, starting_time } = req.body;
-      const user = await User.findOne({ username }); // Find user by username
-      const reservation = await Reservation.create({ user_id: user._id, restaurant_id, starting_time });
+      console.log(req.body)
+      const user = await User.findOne({ username });
+      console.log(user.id + ' ' + restaurant_id + ' ' + starting_time)
+      const reservation = await Reservation.create({ user_id: user.id, restaurant_id, starting_time });
       res.json(reservation);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -68,17 +71,17 @@ ReservationCtrl.deleteReservationById = async (req, res) => {
   }
 };
 
-ReservationCtrl.getAllReservationsByUser = async (req, res) => {
-  try {
-    const reservations = await Reservation.findAll({
-      where: {
-        user_id: req.params.user_id
-      }
-    });
-    res.json(reservations);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+ReservationCtrl.getAllReservationsByUsername = async (req, res) => {
+    try {
+      const { username } = req.params;
+      const user = await User.findOne({  username });
+      const reservations = await Reservation.findAll({ where: { user_id: user.id } });
+
+      res.json(reservations);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+  
 
 module.exports = ReservationCtrl;

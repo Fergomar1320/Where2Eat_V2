@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 class ReservationService {
-  urlApi = 'http://localhost:3000/api/reservations';
+  static urlApi = 'http://localhost:3001/api/reservations';
 
   // Get all reservations of a specific user
-  static async getAllReservationsByUser(userId) {
-    const response = await axios.get(`${this.urlApi}/user/${userId}`);
+  static async getAllReservationsByUsername(username) {
+    const response = await axios.get(`${this.urlApi}/user/${username}`);
     return response.data;
   }
 
@@ -16,9 +16,7 @@ class ReservationService {
       restaurant_id: itemId,
       starting_time: time,
     };
-    console.log(newReservation);
     const response = await axios.post(this.urlApi, newReservation);
-    console.log(response.data);
     return response.data;
   }
   

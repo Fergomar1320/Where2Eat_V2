@@ -30,6 +30,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    z-index: 3;
   }
   
   .menu-item {
@@ -43,5 +44,42 @@ header {
   
   .menu-item:hover {
     background-color: #f0f0f0;
+  }
+
+  .modal {
+    position: fixed;
+    top: 150px;
+    left: 200px;
+    right: 200px;
+    bottom: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    z-index: 1;
+    overflow: auto;
+    border: 3px solid black;
+  }
+
+  .modal-data {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    border: solid black;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    z-index: 2;
+    
   }
   

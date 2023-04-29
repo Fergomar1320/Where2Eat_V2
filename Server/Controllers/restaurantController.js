@@ -15,7 +15,11 @@ RestaurantCtrl.getRestaurantById = async (req, res, next) => {
   try {
     const restaurant = await Restaurant.findByPk(id);
     if (restaurant) {
-      res.json(restaurant);
+      const response = {
+        name: restaurant.dataValues.name,
+        address: restaurant.dataValues.address
+      };
+      res.json(response);
     } else {
       res.status(404).send('Restaurant not found');
     }

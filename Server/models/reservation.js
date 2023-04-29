@@ -26,7 +26,7 @@ const Reservation = sequelize.define('reservation', {
     }
   },
   starting_time: {
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
     allowNull: false
   },
 });
