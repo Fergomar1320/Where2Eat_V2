@@ -10,7 +10,9 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/api/restaurants', require('./restaurant.router'));
+app.use('/api/restaurants', require('./routers/restaurant.router'));
+app.use('/api/users', require('./routers/user.router'));
+app.use('/api/reservations', require('./routers/reservation.router'));
 
 (async () => {
   try {

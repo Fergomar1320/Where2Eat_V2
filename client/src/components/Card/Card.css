@@ -32,16 +32,17 @@
 
 .card-popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 120px;
+  left: 200px;
+  right: 200px;
+  bottom: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 999;
   overflow: auto;
+  border: 3px solid coral;
 }
 
 .card-popup-image {
@@ -59,7 +60,6 @@
   width: 50%;
   padding: 16px;
   background-color: #fff;
-  color: #333;
 }
 
 .card-popup-title {
@@ -80,20 +80,6 @@
   line-height: 1.5;
 }
 
-.card-popup-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-}
-
-.card-popup-close:hover {
-  color: #ccc;
-}
-
 .card-overlay {
   position: absolute;
   top: 0;
@@ -107,4 +93,28 @@
 
 .card:hover .card-overlay {
   opacity: 0.4;
+}
+
+.card-popup-close {
+  position: absolute;
+  top: 120px;
+  right: 145px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  border: solid black;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  
+}
+
+.card-popup-close:hover {
+  color: #000;
+}
+
+.card-popup-button:hover {
+  color: #000;
+  background-color: #ccc;
 }

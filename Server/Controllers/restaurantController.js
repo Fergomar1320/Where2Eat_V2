@@ -1,11 +1,10 @@
-const Restaurant = require('./restaurant');
+const Restaurant = require('../models/restaurant');
 const RestaurantCtrl = {}
 
 RestaurantCtrl.getAllRestaurants = async (req, res, next) => {
   try {
     const restaurants = await Restaurant.findAll();
     res.json(restaurants);
-    console.log("get request")
   } catch (err) {
     next(err);
   }

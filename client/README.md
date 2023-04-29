@@ -4,3 +4,4 @@ College Project
 # Dependencies for front-end
 
 - Axios (for connecting front with back)
+- react-router-dom (for pages)

@@ -7,3 +7,5 @@ College Project
 - cors
 - Sequelize (for MySQL implementation)
 - mysql2 (same reason)
+- bcrypt (user verification)
+- jsonwebtoken (user verification)

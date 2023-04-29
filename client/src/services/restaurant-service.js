@@ -1,9 +1,6 @@
 import axios from 'axios';
-import Restaurant from '../models/Restaurant'
 
 class RestaurantService {
-  selectedRestaurant = Restaurant;
-  restaurants = [];
   urlApi = 'http://localhost:3001/api/restaurants';
 
   getRestaurants() {
