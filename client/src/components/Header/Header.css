@@ -1,0 +1,101 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .title {
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    margin-left: 560px;
+  }
+  
+  .user-logo {
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .user-menu {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid gray;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 3;
+  }
+  
+  .menu-item {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .menu-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .modal {
+    position: fixed;
+    top: 150px;
+    left: 200px;
+    right: 200px;
+    bottom: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    z-index: 1;
+    overflow: auto;
+    border: 3px solid black;
+  }
+
+  .modal-data {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    border: solid black;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    z-index: 2;
+    
+  }
+  
+  .update-btn {
+    background-color: #ffbd2f;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-transform: uppercase;
+  }
+  
+  .reservation-btn:hover {
+    background-color: #ffbd2f;
+    color: #fff;
+  }
+  

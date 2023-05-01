@@ -1,0 +1,150 @@
+.card {
+  position: relative;
+  width: 293px;
+  height: 238px;
+  margin: 16px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-popup {
+  position: fixed;
+  top: 120px;
+  left: 200px;
+  right: 200px;
+  bottom: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  overflow: auto;
+  border: 3px solid black;
+}
+
+.card-popup-image {
+  width: 50%;
+  padding: 16px;
+}
+
+.card-popup-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-popup-details {
+  width: 50%;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.card-popup-title {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-popup-address,
+.card-popup-city,
+.card-popup-country,
+.card-popup-latitude,
+.card-popup-longitude,
+.card-popup-phone,
+.card-popup-website {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.8) 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.card:hover .card-overlay {
+  opacity: 0.4;
+}
+
+.card-popup-close {
+  position: absolute;
+  top: 140px;
+  right: 220px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  border: solid black;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  z-index: 2;
+  
+}
+
+.card-popup-close:hover {
+  color: #000;
+}
+
+.card-popup-button:hover {
+  color: #000;
+  background-color: #ccc;
+}
+
+.reservation-button {
+  background-color: #ffbd2f;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.time-button {
+  background-color: #fff;
+  border: 2px solid #ffbd2f;
+  color: #ffbd2f;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.time-button:hover {
+  background-color: #ffbd2f;
+  color: #fff;
+}
+
