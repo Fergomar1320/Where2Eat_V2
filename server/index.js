@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.resolve(__dirname, '../client/src/app.js')));
 
 app.use('/api/restaurants', require('./routers/restaurant.router'));
 app.use('/api/users', require('./routers/user.router'));
