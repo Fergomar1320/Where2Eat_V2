@@ -1,3 +1,7 @@
+/*
+Restaurant controller. Some went unused, but just in case.
+*/
+
 const Restaurant = require('../models/restaurant');
 const RestaurantCtrl = {}
 

@@ -1,3 +1,9 @@
+/*
+Login page. Created an item in localStorage named "authenticated", which checks if the 
+user is currently logged in. Used in the restaurant page. Uses an auth token to verify
+the user. More in back end.
+*/
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../services/user-service';

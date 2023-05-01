@@ -1,3 +1,8 @@
+/*
+Register page. The user is created with the call to back end, and is
+redirected to /login.
+*/
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../services/user-service';

@@ -1,3 +1,7 @@
+/*
+Restaurant model. Same as back end.
+*/
+
 class Restaurant {
     constructor(id, name, image, address, city, country, latitude, longitude, phone, website, price) {
       this.id = id;

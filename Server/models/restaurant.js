@@ -1,3 +1,7 @@
+/*
+Restaurant object.
+*/
+
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database');
 

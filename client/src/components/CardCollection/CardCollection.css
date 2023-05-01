@@ -1,3 +1,6 @@
+/*
+Made to show cards as a grid.
+*/
 .card-collection {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(293px, 1fr));

@@ -1,3 +1,8 @@
+/*
+Restaurant page. loggedInUser checks if the user has authenticated, and,
+if not, he's redirected to /login.
+*/
+
 import React from 'react';
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";

@@ -1,6 +1,10 @@
+/*
+Where the credentials are stored and the port is declared.
+*/
+
 const { Sequelize } = require('sequelize');
 
-// Credenciales de MySQL
+// MySQL credentials
 const dbConfig = {
   host: 'localhost',
   username: 'root',

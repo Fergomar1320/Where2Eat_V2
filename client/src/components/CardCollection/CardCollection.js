@@ -7,6 +7,9 @@ import RestaurantService from '../../services/restaurant-service'
 const CardCollection = () => {
     const [restaurants, setRestaurants] = useState([]);
 
+    /*
+    Gets the restaurants in the database, and shows them acccordingly.
+    */
     useEffect(() => {
       RestaurantService.getRestaurants()
         .then(response => setRestaurants(response.data))

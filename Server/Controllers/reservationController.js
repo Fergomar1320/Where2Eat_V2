@@ -1,3 +1,7 @@
+/*
+Reservation controller. Some went unused, but just in case.
+*/
+
 const Reservation = require('../models/reservation');
 const User = require('../models/user');
 const ReservationCtrl = {};

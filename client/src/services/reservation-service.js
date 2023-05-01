@@ -1,3 +1,7 @@
+/*
+User service. The user controller is contacted through here.
+*/
+
 import axios from 'axios';
 
 class ReservationService {
@@ -9,7 +13,7 @@ class ReservationService {
     return response.data;
   }
 
-  // Create new reservation
+  // Special post, where the object is created inside the call
   static async makeReservation(name, itemId, time) {
     const newReservation = {
       username: name,

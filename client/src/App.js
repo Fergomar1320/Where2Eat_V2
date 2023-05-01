@@ -1,3 +1,7 @@
+/*
+Main code. Router is used to navigate between pages.
+*/
+
 import './App.css';
 import React from 'react';
 import {  BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';

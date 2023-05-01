@@ -1,3 +1,7 @@
+/*
+Header function has many properties, which I will explain one by one.
+*/
+
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ReservationService from '../../services/reservation-service';
@@ -5,6 +9,10 @@ import RestaurantService from '../../services/restaurant-service';
 
 import './Header.css';
 
+
+/*
+Gets all restaurants by reservation id.
+*/
 async function getRestaurants(reservation) {
   const restaurant = await RestaurantService.getRestaurantsById(reservation.restaurant_id);
   return restaurant;
@@ -29,6 +37,9 @@ function Header() {
     setShowModal(false);
   };
 
+  /*
+  Shows all the reservations a specific user has by his id.
+  */
   async function printReservations() {
     const reservations = await ReservationService.getAllReservationsByUsername(username);
     const restaurantPromises = reservations.map(reservation => getRestaurants(reservation));
@@ -37,6 +48,9 @@ function Header() {
     setRestaurants(restaurants);
   }
 
+  /*
+  Shows all the available times, and updates the reservation time when clicked on one.
+  */
   const renderReservationTimes = (reservation) => {
     const times = [];
     for (let i = 0; i <= 540; i += 10) {
@@ -54,6 +68,10 @@ function Header() {
     setShowReservation(!showReservation)
   }
 
+  /*
+  Actually updates the reservation. A reservation object is created, and the reservations
+  shown on screen are updated accordingly.
+  */
   const handleUpdateReservation = async (reservationId, reservation, newTime) => {
     const updatedReservation = { 
       user_id: reservation.user_id,
@@ -65,6 +83,9 @@ function Header() {
     setShowReservation(!showReservation)
   };
 
+  /*
+  Handles deletion. Same story as updating, but a window is shown to confirm the decision.
+  */
   const handleDeleteReservation = async (reservationId) => {
     const confirmDelete = window.confirm("Are you sure you want to cancel your reservation?");
     if (confirmDelete) {
@@ -75,12 +96,18 @@ function Header() {
     }
   };
 
+  /*
+  Logs out. The authenticated item is reassigned to false.
+  */
   const logOut = async () => {
-    localStorage.setItem("authenticated", true);
+    localStorage.setItem("authenticated", false);
     navigate('/login');
   }
   
 
+  /*
+  A showModal is created to toggle between showing the reservations.
+  */
   return (
     <header>
       <h1 className="title">Where2Eat</h1>

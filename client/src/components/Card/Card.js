@@ -13,6 +13,10 @@ const Card = ({ restaurantId, name, image, price, address, city, country, latitu
     setShowReservation(!showReservation);
   };
 
+  /*
+  Same as header. Renders the reservation time buttons. Only that, in this case, the reservation
+  is created instead of updated.
+  */
   const renderReservationTimes = () => {
     const times = [];
     for (let i = 0; i <= 540; i += 10) {
@@ -26,6 +30,9 @@ const Card = ({ restaurantId, name, image, price, address, city, country, latitu
     return times;
   };
 
+  /*
+  Here is where it's actually created.
+  */
   const handleReservation = (time) => {
     console.log(time);
     ReservationService.makeReservation(username, restaurantId, time);
@@ -33,6 +40,9 @@ const Card = ({ restaurantId, name, image, price, address, city, country, latitu
     setShowReservation(false);
   };
 
+  /*
+  Created to work well with CardCollection. Renders a card per each item in restaurant.
+  */
   return (
     <><div className="card" onClick={() => setIsExpanded(true)}>
       <div className="card-image">

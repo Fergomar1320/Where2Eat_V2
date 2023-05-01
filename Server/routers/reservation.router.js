@@ -1,3 +1,7 @@
+/*
+Reservation routers.
+*/
+
 const express = require('express');
 const router = express.Router();
 const ReservationCtrl = require('../Controllers/reservationController');

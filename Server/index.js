@@ -1,3 +1,7 @@
+/*
+Calls database, declares router middlewares, syncs with db, starts listening.
+*/
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./database');

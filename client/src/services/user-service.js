@@ -1,3 +1,7 @@
+/*
+User service. The user controller is contacted through here.
+*/
+
 import axios from 'axios';
 
 class UserService {

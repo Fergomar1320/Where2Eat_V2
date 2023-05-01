@@ -1,3 +1,7 @@
+/*
+Restaurant service. The restaurant controller is contacted through here.
+*/
+
 import axios from 'axios';
 
 class RestaurantService {

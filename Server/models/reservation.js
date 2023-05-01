@@ -1,3 +1,7 @@
+/*
+Reservation object. Has 2 foreign keys: restaurant_id and user_id.
+*/
+
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database');
 const User = require('./user');
