@@ -14,14 +14,14 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.resolve(__dirname, '../client/src/app.js')));
+app.use(express.static(path.resolve(__dirname, '../client/src')));
 
 app.use('/api/restaurants', require('./routers/restaurant.router'));
 app.use('/api/users', require('./routers/user.router'));
 app.use('/api/reservations', require('./routers/reservation.router'));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '../client/src', 'index.js'));
 });
 
 (async () => {
