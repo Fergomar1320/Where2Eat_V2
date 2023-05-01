@@ -20,6 +20,10 @@ app.use('/api/restaurants', require('./routers/restaurant.router'));
 app.use('/api/users', require('./routers/user.router'));
 app.use('/api/reservations', require('./routers/reservation.router'));
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});
+
 (async () => {
   try {
     await sequelize.sync();
