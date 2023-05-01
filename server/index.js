@@ -6,6 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./database');
 const cors = require('cors');
+const path = require ('path');
 
 
 const app = express();
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.use('/api/restaurants', require('./routers/restaurant.router'));
 app.use('/api/users', require('./routers/user.router'));
