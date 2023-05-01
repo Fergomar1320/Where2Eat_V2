@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ReservationService from '../../services/reservation-service';
 import RestaurantService from '../../services/restaurant-service';
 
@@ -15,9 +15,10 @@ function Header() {
   const [showModal, setShowModal] = useState(false);
   const [reservations, setReservations] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
-  const [showReservation, setShowReservation] = useState(true);
+  const [showReservation, setShowReservation] = useState(false);
   const location = useLocation();
   const username = new URLSearchParams(location.search).get('username');
+  const navigate = useNavigate();
 
   const handleMyReservationsClick = () => {
     printReservations();
@@ -36,25 +37,32 @@ function Header() {
     setRestaurants(restaurants);
   }
 
-  const renderReservationTimes = (id) => {
+  const renderReservationTimes = (reservation) => {
     const times = [];
     for (let i = 0; i <= 540; i += 10) {
       const hour = Math.floor(i / 60);
       const minute = i % 60;
       const time = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
       times.push(
-        <button key={i} onClick={() => handleUpdateReservation(id, time)}>{time}</button>
+        <button className='time-btn' key={i} onClick={() => handleUpdateReservation(reservation.id, reservation, time)}>{time}</button>
       );
     }
     return times;
   };
 
-  const handleUpdateReservation = async (reservationId, newTime) => {
+  const handleUpdateButtonClicked = async () => {
+    setShowReservation(!showReservation)
+  }
+
+  const handleUpdateReservation = async (reservationId, reservation, newTime) => {
     const updatedReservation = { 
+      user_id: reservation.user_id,
+      restaurant_id: reservation.restaurant_id,
       starting_time: newTime };
     await ReservationService.updateReservationById(reservationId, updatedReservation);
     const reservations = await ReservationService.getAllReservationsByUsername(username);
     setReservations(reservations);
+    setShowReservation(!showReservation)
   };
 
   const handleDeleteReservation = async (reservationId) => {
@@ -66,6 +74,11 @@ function Header() {
       printReservations();
     }
   };
+
+  const logOut = async () => {
+    localStorage.setItem("authenticated", true);
+    navigate('/login');
+  }
   
 
   return (
@@ -80,7 +93,7 @@ function Header() {
           <button className="menu-item" onClick={handleMyReservationsClick}>
             My reservations
           </button>
-          <button className="menu-item">Logout</button>
+          <button className="menu-item" onClick={logOut}>Logout</button>
         </div>
       )}
       {showModal && (
@@ -92,8 +105,8 @@ function Header() {
               {reservations.map((reservation, index) => (
                 <li className="data" key={reservation.id}>
                   {restaurants[index].data.name} - {restaurants[index].data.address} - {reservation.starting_time}
-                  {showReservation ? renderReservationTimes() : <button onClick={renderReservationTimes(reservation.id)}>Update</button>}
-                  <button className="delete-btn" onClick={() => handleDeleteReservation(reservation)}>Delete</button>
+                  {showReservation ? renderReservationTimes(reservation) : <button className='update-btn' onClick={handleUpdateButtonClicked}>Update</button>}
+                  <button className="delete-btn" onClick={() => handleDeleteReservation(reservation.id)}>Delete</button>
                 </li>
               ))}
             </ul>

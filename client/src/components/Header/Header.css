@@ -83,3 +83,19 @@ header {
     
   }
   
+  .update-btn {
+    background-color: #ffbd2f;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-transform: uppercase;
+  }
+  
+  .reservation-btn:hover {
+    background-color: #ffbd2f;
+    color: #fff;
+  }
+  

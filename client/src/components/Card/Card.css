@@ -119,3 +119,32 @@
   color: #000;
   background-color: #ccc;
 }
+
+.reservation-button {
+  background-color: #ffbd2f;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.time-button {
+  background-color: #fff;
+  border: 2px solid #ffbd2f;
+  color: #ffbd2f;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.time-button:hover {
+  background-color: #ffbd2f;
+  color: #fff;
+}
+

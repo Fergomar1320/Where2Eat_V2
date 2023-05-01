@@ -20,7 +20,7 @@ const Card = ({ restaurantId, name, image, price, address, city, country, latitu
       const minute = i % 60;
       const time = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
       times.push(
-        <button key={i} onClick={() => handleReservation(time)}>{time}</button>
+        <button class="time-button"key={i} onClick={() => handleReservation(time)}>{time}</button>
       );
     }
     return times;
@@ -57,7 +57,8 @@ const Card = ({ restaurantId, name, image, price, address, city, country, latitu
             <p className="card-popup-phone">{phone}</p>
             <p className="card-popup-website">{website}</p>
             <div className="reservation-container">
-              {showReservation ? renderReservationTimes() : <button onClick={handleReservationClick}>Make a reservation</button>}
+              <br></br>
+              {showReservation ? renderReservationTimes() : <button class= "reservation-button"onClick={handleReservationClick}>Make a reservation</button>}
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import './LoginPage.css';
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState(null);
+  const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
   const navigate = useNavigate(); 
 
   const handleSubmit = async (event) => {
@@ -14,10 +14,11 @@ function LoginPage() {
 
     try {
     const authToken = await UserService.verifyUser(username, password);
-    console.log(authToken);
 
     if (authToken) {
       localStorage.setItem('authToken', authToken);
+      setauthenticated(true)
+      localStorage.setItem("authenticated", true);
       navigate(`/main?username=${username}`);
 
     } else {
